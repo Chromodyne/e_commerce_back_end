@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   } catch (err) {
 
     res.status(500).json(err);
-    
+
   }
 
 });
@@ -26,7 +26,14 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Products
   try {
 
-    
+    const category = await Category.findByPk(req.params.id);
+
+    if (!category) {
+      res.status(404).json ({ message: "That category does not exist." });
+      return;
+    }
+
+    res.status(200).json(category);
 
   } catch (err) {
     res.status(500).json(err);
