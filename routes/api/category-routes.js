@@ -9,7 +9,11 @@ router.get('/', async (req, res) => {
 
   //Try/Catch for RESTFul
   try {
-    const category = await Category.findAll();
+    const category = await Category.findAll({
+      include: {
+        model: Product
+      }
+    });
 
     res.status(200).json(category);
 
@@ -26,7 +30,11 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Products
   try {
 
-    const category = await Category.findByPk(req.params.id);
+    const category = await Category.findByPk(req.params.id, {
+      include: {
+        model: Product
+      }
+    });
 
     if (!category) {
       res.status(404).json ({ message: "That category does not exist." });
