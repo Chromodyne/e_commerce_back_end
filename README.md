@@ -18,4 +18,4 @@ Try it out and kickstart your business's ecommerce presence today!
 
 A brief video explaining what the application does and how to use it can be found at the link below.
 
-https://youtu.be/fJzESWb-QdQ
+https://youtu.be/DaZXzIaYjdU
